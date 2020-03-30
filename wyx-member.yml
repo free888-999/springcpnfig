@@ -1,0 +1,46 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+server:
+  port: 8763
+spring:
+  application:
+    name: wyx-member
+    profiles:
+      active: test
+  datasource:
+    url: jdbc:mysql://localhost:3306/simplemall
+    username: root
+    password: new_password
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
+
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: foobared
+    timeout: 500ms
+    lettuce:
+      pool:
+        max-active: 1000
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 5
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
